@@ -8,9 +8,10 @@ form.addEventListener('submit',addItem);
 
 itemList.addEventListener('click',removeItem);
 
-//filter event
+//edit event
 
-filter.addEventListener('keyup', filterItems);
+itemList.addEventListener('click',editItem);
+
 
 //add item
 function addItem(e){
@@ -39,9 +40,20 @@ deleteBtn.className ='btn btn-danger btn-sm float-right delete';
 //append textnode 
 deleteBtn.appendChild(document.createTextNode('x'));
 
+//CREATE EDIT BUTTON
+
+var editBtn = document.createElement('button');
+
+//ADD classes to edit button
+
+editBtn.className='btn btn-edit btn-sm float-right edit';
+
+//append textnode
+editBtn.appendChild(document.createTextNode('EDIT'));
+
 //append button to li
 li.appendChild(deleteBtn);
-
+li.appendChild(editBtn);
 itemList.appendChild(li);
 }
 
@@ -59,18 +71,17 @@ function removeItem(e)
    
 }
 
-function filterItems(e){
-    // convert text to lowercase
-    var text = e.target.value.toLowerCase();
-    // Get lis
-    var items = itemList.getElementsByTagName('li');
-    // Convert to an array
-    Array.from(items).forEach(function(item){
-      var itemName = item.firstChild.textContent;
-      if(itemName.toLowerCase().indexOf(text) != -1){
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
+function editItem(e)
+{
+    if(Button.textContent==='EDIT')
+    {
+      const spam = li.firstElementChild;
+      const input=document.createElement('input');
+      input.type='text';
+      
+      
+    }
+    
+
+}
+
